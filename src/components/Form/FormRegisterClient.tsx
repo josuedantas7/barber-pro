@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation'
 
 const FormRegisterClient = () => {
 
-
     const [name,setName] = useState<string>('')
     const [haircut,setHaircut] = useState<string>('')
     const [allHairCuts,setAllHairCuts] = useState([])
@@ -33,7 +32,11 @@ const FormRegisterClient = () => {
 
     useEffect(() => {
         async function getHairCuts(){
-            const response = await api.get('/api/haircuts')
+            const response = await api.get('/api/haircuts', {
+                params: {
+                    checked: true
+                }
+            })
             setAllHairCuts(response.data)
         }
         getHairCuts()
