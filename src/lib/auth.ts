@@ -61,7 +61,7 @@ export const authOptions : NextAuthOptions = {
                         id: user.id,
                         role: user.role
                     },
-                    expires: session.expires // Add the expires property
+                    expires: session.expires
                 }
                 return newSession
             } else {
