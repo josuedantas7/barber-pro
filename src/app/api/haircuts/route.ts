@@ -32,22 +32,42 @@ export async function POST(request: NextRequest){
     }
 }
 
-export async function GET(){
+export async function GET(request: NextRequest){
     const session = await getServerSession(authOptions)
 
     if (!session || !session.user){
         return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
     }
 
-    try{
-        const hairCuts = await prisma.hairCuts.findMany({
-            where: {
-                userId: session.user.id
-            }
-        })
-    
-        return NextResponse.json(hairCuts)
-    } catch{
-        return NextResponse.json({ message: "Something went wrong" }, { status: 500 })
+    const { searchParams } = new URL(request.url)
+
+    const checked = searchParams.get('checked')
+
+    if (checked){
+        try{
+            const hairCuts = await prisma.hairCuts.findMany({
+                where: {
+                    active: true,
+                    userId: session.user.id
+                }
+            })
+        
+            return NextResponse.json(hairCuts)
+        } catch{
+            return NextResponse.json({ message: "Something went wrong" }, { status: 500 })
+        }
+    } else {
+        try{
+            const hairCuts = await prisma.hairCuts.findMany({
+                where: {
+                    active: false,
+                    userId: session.user.id
+                }
+            })
+        
+            return NextResponse.json(hairCuts)
+        } catch{
+            return NextResponse.json({ message: "Something went wrong" }, { status: 500 })
+        }
     }
 }
