@@ -3,8 +3,17 @@ import TableListClients from '@/components/Table/TableListClients'
 import prisma from '@/lib/db'
 import Link from 'next/link'
 import React from 'react'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/lib/auth'
+import { redirect } from 'next/navigation'
 
-const page = async () => {
+const Agenda = async () => {
+
+    const session = await getServerSession(authOptions)
+
+    if (!session || !session.user) {
+        return redirect('/login') 
+    }
 
     const clients = await prisma.clients.findMany({
         include: {
@@ -30,4 +39,4 @@ const page = async () => {
   )
 }
 
-export default page
+export default Agenda
