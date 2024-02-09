@@ -16,3 +16,8 @@ export interface ClientProps{
     idHairCuts: string,
     HairCuts: HairCutProps
 }
+
+export interface SwitchProps{
+    checked: boolean,
+    setChecked: React.Dispatch<React.SetStateAction<boolean>>
+}
