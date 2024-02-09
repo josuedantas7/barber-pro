@@ -1,12 +1,37 @@
+'use client'
+import { SwitchContext } from '@/context/SwitchContext';
+import { api } from '@/lib/api';
 import prisma from '@/lib/db';
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { CiMapPin } from "react-icons/ci";
+import { HairCutProps } from '@/Interfaces/allInterfaces';
 
-const TableListHairCuts =  async () => {
+const TableListHairCuts =  () => {
 
-    const haircuts = await prisma.hairCuts.findMany()
+    const { checked } = useContext(SwitchContext);
+    const [haircuts, setHaircuts] = React.useState<HairCutProps[]>([]);
 
-    console.log(haircuts)
+    useEffect(() => {
+        if (!checked){
+            const fetchHairCuts = async () => {
+                const response = await api.get('/api/haircuts');
+                console.log(response.data)
+                setHaircuts(response.data)
+            }
+            fetchHairCuts()
+        } else {
+            const fetchHairCuts = async () => {
+                const response = await api.get('/api/haircuts', {
+                    params: {
+                        checked: checked
+                    }
+                })
+                console.log(response.data)
+                setHaircuts(response.data)
+            }
+            fetchHairCuts()
+        }
+    },[checked])
 
 
     function formatPrice(price : number){
