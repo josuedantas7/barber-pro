@@ -24,7 +24,6 @@ const FormLogin = () => {
         }
         try {
             await signIn('credentials', {...data, redirect: false})
-            console.log('a')
             router.push('/')
             Notification('success', 'Logado com sucesso')
         } catch(err){
