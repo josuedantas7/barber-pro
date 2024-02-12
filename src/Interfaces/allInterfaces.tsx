@@ -1,7 +1,9 @@
 export interface User{
     name?: string,
     email: string,
-    password: string,
+    password?: string,
+    address?: string,
+    id?: string,
 }
 
 export interface HairCutProps{

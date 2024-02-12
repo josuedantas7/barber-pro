@@ -42,6 +42,7 @@ model User {
   HairCuts       HairCuts[]
   idHairCuts     String?    @db.ObjectId
   Clients        Clients[]
+  address        String?
 }
 
 model Clients {
