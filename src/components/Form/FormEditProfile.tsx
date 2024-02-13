@@ -41,7 +41,7 @@ const FormEditProfile = () => {
     }
 
   return (
-    <div className='w-[80%] flex flex-col gap-4'>
+    <div className='w-full flex flex-col gap-4 mx-auto'>
         <TextField onChange={(e) => setName(e.target.value)} defaultValue={oldUser?.name} type='text' className='bg-[#1B1C29] rounded-md' id="outlined-basic" label="Nome da barbearia" variant="filled" />
         <TextField onChange={(e) => setAddress(e.target.value)} defaultValue={oldUser?.address ? oldUser.address : ''} type='text' className='bg-[#1B1C29] rounded-md' id="outlined-basic" label="Endereço" variant="filled" />
         <Button className='bg-[#FBB231]' variant="contained" onClick={() => handleEditUser()}>Salvar</Button>
