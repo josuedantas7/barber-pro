@@ -26,7 +26,7 @@ const Home = async () => {
   return (
     <div className='h-screen bg-[#12131B]'>
         <Header/>
-        <div className='p-8'>
+        <div className='p-8 max-[600px]:px-2'>
             <div className='flex gap-4 items-center'>
                 <h1 className='text-2xl font-bold text-white'>Agenda</h1>
                 <button className='bg-[#212331] py-2 px-3 rounded-md text-white'><Link href={'/agenda/new'}>Registrar</Link></button>
