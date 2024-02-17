@@ -1,3 +1,4 @@
+import ButtonReloadCards from '@/components/Card/ButtonReloadCards'
 import CardPlans from '@/components/Card/CardPlans'
 import Header from '@/components/Header/Header'
 import React from 'react'
@@ -11,8 +12,9 @@ const Planos = () => {
     <div>
         <Header/>
         <div className='h-screen bg-[#12131B] text-white'>
-            <div className='flex flex-col gap-8 items-start w-[80%] max-[650px]:w-[95%] max-[650px]:pt-6 mx-auto pt-20'>
+            <div className='flex justify-between w-[80%] max-[650px]:w-[95%] max-[650px]:pt-6 mx-auto pt-20'>
                 <h1 className='text-white text-2xl font-bold'>Planos</h1>
+                <ButtonReloadCards/>
             </div>
             <div className='flex mt-8 gap-8 justify-center'>
               <CardPlans plans={plans} />
