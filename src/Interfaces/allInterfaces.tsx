@@ -23,3 +23,10 @@ export interface SwitchProps{
     checked: boolean,
     setChecked: React.Dispatch<React.SetStateAction<boolean>>
 }
+
+export interface BarberProps{
+    id: string,
+    name: string,
+    email: string,
+    role: string,
+}
