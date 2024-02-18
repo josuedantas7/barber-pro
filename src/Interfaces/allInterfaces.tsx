@@ -26,6 +26,7 @@ export interface SwitchProps{
 
 export interface BarberProps{
     id: string,
+    address?: string,
     name: string,
     email: string,
     role: string,
