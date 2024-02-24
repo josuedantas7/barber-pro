@@ -3,5 +3,5 @@
 
     Usando: Next js, Typescript, TailwindCSS, PrismaORM, MongoDB
 
-    Deploy: https://rl-papelaria.vercel.app
+    Deploy: http://barber-pro-rose.vercel.app
 </div>
