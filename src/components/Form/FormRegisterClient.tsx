@@ -46,7 +46,7 @@ const FormRegisterClient = () => {
   return (
     <form className='flex flex-col w-[80%] mx-auto gap-4 p-8 rounded-lg bg-[#202130]' onSubmit={handleRegisterClient}>
         <h1 className='text-white text-2xl font-bold text-center'>Cadastrar serviço</h1>
-        <TextField onChange={(e) => setName(e.target.value)} type='text' className='bg-[#1B1C29] rounded-md' id="outlined-basic" label="Nome do corte" variant="filled" />
+        <TextField onChange={(e) => setName(e.target.value)} type='text' className='bg-[#1B1C29] rounded-md' id="outlined-basic" label="Nome do cliente" variant="filled" />
         <SelectHairCut haircut={haircut} setHairCut={setHaircut} haircuts={allHairCuts} />
         <Button type='submit' className='bg-[#FBA931] py-2 text-black font-bold' variant="outlined">Cadastrar</Button>
     </form>
